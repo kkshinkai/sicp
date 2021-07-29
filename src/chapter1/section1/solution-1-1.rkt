@@ -69,4 +69,4 @@ presented. |#
                ((< a b) b)
                (else -1))
          (+ a 1))
-  Expected: 6 ]
+  Expected: 16 ]
