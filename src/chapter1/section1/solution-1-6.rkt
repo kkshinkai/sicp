@@ -1,7 +1,7 @@
 #lang racket
 
 #| Exercise 1.6: This exercise mainly talk about the difference about Applicative Order and Normal Order.
-"else-clause" of "new if" will be expanded at the beginning, and will lead to the dead cycle of the program.
+"else-clause" of "new if" will be expanded at the beginning, and will lead to the infinite loop of the program.
 |#
 
 ;;original
@@ -27,18 +27,7 @@
 (define (sqrt x)
   (sqrt-iter 1.0 x))
 
-;new-if
-(define (new-if predicate then-clause else-clause)
-  (cond (predicate then-clause)
-	(else else-clause)))
 
-(define (new-sqrt-iter guess x)
-  (new-if (good-enough? guess x)
-	  guess
-	  (new-sqrt-iter (improve guess x) x)))
-
-(define (new-sqrt x)
-  (new-sqrt-iter 1.0 x))
 
 (sqrt 9)
 ;;new-if error:Interactions disabled; out of memory
